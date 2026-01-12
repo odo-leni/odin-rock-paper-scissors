@@ -1,9 +1,13 @@
 function getComputerChoice() {
-  const result = Math.floor(Math.random() * 3);
-  if (result === 2) {
+  const randomValue = Math.floor(Math.random() * 3);
+  return getChoice(randomValue);
+}
+
+function getChoice(value) {
+  if (value === 2) {
     return "scissors";
   }
-  else if (result === 1) {
+  else if (value === 1) {
     return "paper"
   }
   else {
@@ -11,4 +15,7 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+  let userChoice = parseInt(prompt("Enter a value between 0 to 2:"));
+  return getChoice(userChoice);
+}
