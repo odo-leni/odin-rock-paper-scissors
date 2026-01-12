@@ -24,7 +24,7 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  console.log(`Human choice "${humanChoice}" vs computer choice "${computerChoice}"`);
+  console.log(`Human choice "${humanChoice}" vs computer choice "${computerChoice}":`);
   switch (humanChoice) {
     case "scissors":
       switch (computerChoice) {
@@ -74,7 +74,29 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function displayScore() {
+  console.log(`Human score: ${humanScore} - computer score: ${computerScore}`);
+}
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+  displayScore();
+
+  for (let i = 0; i <= 4; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    displayScore();
+  }
+
+  if (humanScore > computerScore) {
+    console.log("End game: you win!");
+  }
+  else if(humanScore > computerScore){
+     console.log("End game: a tie! No one wins.");
+  }
+  else {
+    console.log("End game: you lose!");
+  }
+}
+
+playGame();
